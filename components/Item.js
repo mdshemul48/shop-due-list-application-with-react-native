@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Box } from "native-base";
+import { View, Text, Box, SmallCloseIcon, Icon } from "native-base";
 import { StyleSheet } from "react-native";
 
 import moment from "moment";
@@ -12,13 +12,14 @@ const Item = () => {
       <View style={styles.detailArea}>
         {/* delete button */}
         <View style={styles.deleteButton}>
-          <Text>D</Text>
+          <SmallCloseIcon color='#164e63' />
+          {/* <Text style={styles.deleteText}>D</Text> */}
         </View>
         <View>
           <Text style={styles.leftSizeText} fontSize='2xl'>
             Coke
           </Text>
-          <Text style={styles.leftSizeText} fontSize='md'>
+          <Text style={styles.leftSizeText} fontSize='sm'>
             Feros
           </Text>
         </View>
@@ -27,7 +28,7 @@ const Item = () => {
         <Text style={styles.rightSizeText} fontSize='2xl'>
           ৳30
         </Text>
-        <Text style={styles.rightSizeText} fontSize='md'>
+        <Text style={styles.rightSizeText} fontSize='sm'>
           {formattedTime}
         </Text>
       </View>
@@ -50,16 +51,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
+
   deleteButton: {
     // width: 40,
     // height: 40,
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    borderRadius: 10,
-    marginHorizontal: 8,
-    borderColor: "#1f2937",
+    paddingHorizontal: 4,
+    paddingVertical: 5,
+    borderRadius: 15,
+    marginRight: 8,
+    borderColor: "#164e63",
     backgroundColor: "#22d3ee",
     borderWidth: 3,
+  },
+  deleteText: {
+    fontSize: 25,
   },
   leftSizeText: { color: "#ecfeff" },
   rightSizeText: {
