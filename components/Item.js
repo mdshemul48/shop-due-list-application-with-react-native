@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Box, SmallCloseIcon, Icon } from "native-base";
+import { View, Text, Box, SmallCloseIcon } from "native-base";
 import { StyleSheet } from "react-native";
 
 import { TouchableOpacity } from "react-native";
@@ -39,7 +39,7 @@ const Item = () => {
 
 const styles = StyleSheet.create({
   card: {
-    margin: 10,
+    margin: 5,
     backgroundColor: "#155e75",
     paddingVertical: 8,
     borderRadius: 13,
