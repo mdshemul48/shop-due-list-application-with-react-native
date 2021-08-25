@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Box, SmallCloseIcon, Icon } from "native-base";
 import { StyleSheet } from "react-native";
 
+import { TouchableOpacity } from "react-native";
 import moment from "moment";
 
 const Item = () => {
@@ -10,11 +11,11 @@ const Item = () => {
   return (
     <Box style={styles.card}>
       <View style={styles.detailArea}>
-        {/* delete button */}
-        <View style={styles.deleteButton}>
-          <SmallCloseIcon color='#164e63' />
-          {/* <Text style={styles.deleteText}>D</Text> */}
-        </View>
+        <TouchableOpacity>
+          <View style={styles.deleteButton}>
+            <SmallCloseIcon color='#164e63' />
+          </View>
+        </TouchableOpacity>
         <View>
           <Text style={styles.leftSizeText} fontSize='2xl'>
             Coke
@@ -53,8 +54,6 @@ const styles = StyleSheet.create({
   },
 
   deleteButton: {
-    // width: 40,
-    // height: 40,
     paddingHorizontal: 4,
     paddingVertical: 5,
     borderRadius: 15,
@@ -72,4 +71,5 @@ const styles = StyleSheet.create({
     textAlign: "right",
   },
 });
+
 export default Item;
