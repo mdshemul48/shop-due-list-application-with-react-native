@@ -1,12 +1,13 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
 import {NativeBaseProvider} from 'native-base';
 
 import Header from './components/Header';
+import Item from './components/Item';
 const App = () => {
   return (
     <NativeBaseProvider>
       <Header />
+      <Item />
     </NativeBaseProvider>
   );
 };
