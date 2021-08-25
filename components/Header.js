@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
-import {StyleSheet} from 'react-native';
-import {Heading, View} from 'native-base';
+import React from "react";
+import { StyleSheet } from "react-native";
+import { Heading, View } from "native-base";
 const Header = () => {
   return (
     <View style={styles.headerArea}>
@@ -13,15 +13,15 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   headerArea: {
-    backgroundColor: '#fed7aa',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    backgroundColor: "#164e63",
+    flexDirection: "row",
+    justifyContent: "space-between",
     paddingHorizontal: 15,
     borderBottomStartRadius: 25,
     borderBottomEndRadius: 25,
   },
   heading: {
-    color: '#292524',
+    color: "#ecfeff",
     paddingVertical: 15,
   },
 });
