@@ -1,9 +1,11 @@
-import React from 'react';
-import {View, Text} from 'native-base';
+import React from "react";
+import { View, Text } from "native-base";
 const Item = () => {
-    return <View>
-        <Text>hello world</Text>
+  return (
+    <View>
+      <Text>hello world</Text>
     </View>
-}
+  );
+};
 
-export default Item
+export default Item;
