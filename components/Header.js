@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Heading, View} from 'native-base';
@@ -16,6 +17,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 15,
+    borderBottomStartRadius: 20,
+  borderBottomEndRadius: 20,
   },
   heading: {
     color: '#292524',
