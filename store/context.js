@@ -1,4 +1,4 @@
-import { createContext, useDispatch } from "react";
+import React, { createContext, useReducer } from "react";
 
 const dueContext = createContext({
   addEntry: (productName, price, option, date) => {},
@@ -33,10 +33,11 @@ const reducer = (state, action) => {
 };
 
 export const ContextProvider = (props) => {
-  const [state, dispatch] = useDispatch(reducer, {
+  const [state, dispatch] = useReducer(reducer, {
     allEntry: [],
-    TotalPrice: 0,
+    totalPrice: 0,
   });
+
   const addEntry = (entry) => {
     dispatch({ type: "addEntry", entry });
   };
@@ -47,7 +48,14 @@ export const ContextProvider = (props) => {
 
   console.log(removeEntry);
   return (
-    <dueContext.Provider value={{ addEntry, removeEntry }}>
+    <dueContext.Provider
+      value={{
+        addEntry,
+        removeEntry,
+        allEntry: state.allEntry,
+        totalPrice: state.totalPrice,
+      }}
+    >
       {props.children}
     </dueContext.Provider>
   );
