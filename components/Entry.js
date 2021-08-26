@@ -34,6 +34,7 @@ const Entry = () => {
     }
 
     addEntry({ productName, price: parseInt(price), option, time: new Date() });
+    setFormState({ productName: "", price: "", option: "Feros" });
   };
 
   return (
