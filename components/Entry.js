@@ -19,7 +19,6 @@ const Entry = () => {
   const optionChangeHandler = (eventText) => {
     setFormState((prevState) => ({ ...prevState, option: eventText }));
   };
-  console.log(formState);
   return (
     <KeyboardAvoidingView
       style={styles.createCard}
