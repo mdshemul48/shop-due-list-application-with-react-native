@@ -1,7 +1,14 @@
-import React from "react";
+import React,{useState} from "react";
 import { KeyboardAvoidingView, StyleSheet, TextInput } from "react-native";
 import { FormControl, Radio, Button } from "native-base";
+
+
+
 const Entry = () => {
+  const [formState, setFormState] = useState({productName: "", price: "", option:"Feros" })
+  
+
+
   return (
     <KeyboardAvoidingView
       style={styles.createCard}
@@ -13,13 +20,13 @@ const Entry = () => {
       </FormControl>
       <FormControl>
         <Radio.Group name='provider' style={styles.providers}>
-          <Radio value='one' my={1}>
+          <Radio value='Feros' my={1}>
             Feros
           </Radio>
-          <Radio value='two' my={1}>
+          <Radio value='Dad' my={1}>
             his dad
           </Radio>
-          <Radio value='three' my={1}>
+          <Radio value='Mom' my={1}>
             his mother
           </Radio>
           <Button key={"sm"} size={"sm"}>
