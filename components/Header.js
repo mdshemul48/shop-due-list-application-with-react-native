@@ -1,12 +1,14 @@
-/* eslint-disable prettier/prettier */
-import React from "react";
+import React, { useContext } from "react";
 import { StyleSheet } from "react-native";
 import { Heading, View } from "native-base";
+
+import dueContext from "../store/context";
 const Header = () => {
+  const { totalPrice } = useContext(dueContext);
   return (
     <View style={styles.headerArea}>
       <Heading style={styles.heading}>Total Due</Heading>
-      <Heading style={styles.heading}>৳100</Heading>
+      <Heading style={styles.heading}>৳{totalPrice}</Heading>
     </View>
   );
 };

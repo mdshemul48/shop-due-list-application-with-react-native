@@ -45,7 +45,6 @@ export const ContextProvider = (props) => {
   const removeEntry = (id) => {
     dispatch({ type: "removeEntry", id });
   };
-  console.log(state);
   return (
     <dueContext.Provider
       value={{
