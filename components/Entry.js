@@ -1,35 +1,51 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { KeyboardAvoidingView, StyleSheet, TextInput } from "react-native";
 import { FormControl, Radio, Button } from "native-base";
 
-
-
 const Entry = () => {
-  const [formState, setFormState] = useState({productName: "", price: "", option:"Feros" })
-  
+  const [formState, setFormState] = useState({
+    productName: "",
+    price: "",
+    option: "Feros",
+  });
+
   const productNameChangeHandler = (eventText) => {
-    setFormState(prevState=> ({...prevState, productName: eventText}))
-  }
+    setFormState((prevState) => ({ ...prevState, productName: eventText }));
+  };
   const priceChangeHandler = (eventText) => {
-    setFormState(prevState=> ({...prevState, price: eventText}))
-  }
+    setFormState((prevState) => ({ ...prevState, price: eventText }));
+  };
 
   const optionChangeHandler = (eventText) => {
-    setFormState(prevState=> ({...prevState, option: eventText}))
-
-  }
-  console.log(formState)
+    setFormState((prevState) => ({ ...prevState, option: eventText }));
+  };
+  console.log(formState);
   return (
     <KeyboardAvoidingView
       style={styles.createCard}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <FormControl style={styles.inputs}>
-        <TextInput value={formState.productName} onChangeText={productNameChangeHandler} placeholder='Product Name?' style={styles.productName} />
-        <TextInput value={formState.price} onChangeText={priceChangeHandler}  placeholder='Price?' style={styles.Price} />
+        <TextInput
+          value={formState.productName}
+          onChangeText={productNameChangeHandler}
+          placeholder='Product Name?'
+          style={styles.productName}
+        />
+        <TextInput
+          value={formState.price}
+          onChangeText={priceChangeHandler}
+          placeholder='Price?'
+          style={styles.Price}
+        />
       </FormControl>
       <FormControl>
-        <Radio.Group name='provider' style={styles.providers} onChange={optionChangeHandler} value={formState.option} >
+        <Radio.Group
+          name='provider'
+          style={styles.providers}
+          onChange={optionChangeHandler}
+          value={formState.option}
+        >
           <Radio value='Feros' my={1}>
             Feros
           </Radio>
