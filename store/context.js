@@ -1,4 +1,5 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useEffect } from "react";
+import { AsyncStorage } from "react-native";
 
 const dueContext = createContext({
   addEntry: (productName, price, option, date) => {},
@@ -21,12 +22,13 @@ const reducer = (state, action) => {
         (item) => item.id === action.id
       );
       const foundedItem = state.allEntry[foundedItemIndex];
-
       return {
         ...state,
         allEntry: allEntry.splice(foundedItemIndex, 1),
         totalPrice: state.totalPrice - foundedItem.price,
       };
+    case "setData":
+      return action.payload;
     default:
       throw new Error();
   }
@@ -45,6 +47,24 @@ export const ContextProvider = (props) => {
   const removeEntry = (id) => {
     dispatch({ type: "removeEntry", id });
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await AsyncStorage.getItem("savedData");
+      if (data) {
+        const parsedData = JSON.parse(data);
+        dispatch({ type: "setData", payload: parsedData });
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const setData = async () => {
+      await AsyncStorage.setItem("savedData", JSON.stringify(state));
+    };
+    setData();
+  }, [state]);
   return (
     <dueContext.Provider
       value={{

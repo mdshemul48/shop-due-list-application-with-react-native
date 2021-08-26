@@ -7,7 +7,6 @@ import Item from "./Item";
 
 const AllItems = () => {
   const { allEntry } = useContext(dueContext);
-  console.log(allEntry);
   return (
     <NativeBaseProvider>
       {allEntry.map((item) => (
