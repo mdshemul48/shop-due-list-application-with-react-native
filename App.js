@@ -5,31 +5,18 @@ import { NativeBaseProvider } from "native-base";
 import { ContextProvider } from "./store/context";
 
 import Header from "./components/Header";
-import Item from "./components/Item";
-import Entry from "./components/Entry";
+import AllItems from "./components/AllItems";
+import CreateEntry from "./components/CreateEntry";
+
 const App = () => {
   return (
     <ContextProvider>
       <NativeBaseProvider>
         <Header />
         <ScrollView>
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
+          <AllItems />
         </ScrollView>
-        <Entry />
+        <CreateEntry />
       </NativeBaseProvider>
     </ContextProvider>
   );

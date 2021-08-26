@@ -1,10 +1,15 @@
 import React, { useState, useContext } from "react";
-import { KeyboardAvoidingView, StyleSheet, TextInput } from "react-native";
+import {
+  Keyboard,
+  KeyboardAvoidingView,
+  StyleSheet,
+  TextInput,
+} from "react-native";
 import { FormControl, Radio, Button } from "native-base";
 
 import dueContext from "../store/context";
 
-const Entry = () => {
+const CreateEntry = () => {
   const { addEntry } = useContext(dueContext);
   const [formState, setFormState] = useState({
     productName: "",
@@ -35,6 +40,7 @@ const Entry = () => {
 
     addEntry({ productName, price: parseInt(price), option, time: new Date() });
     setFormState({ productName: "", price: "", option: "Feros" });
+    Keyboard.dismiss();
   };
 
   return (
@@ -114,4 +120,4 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
 });
-export default Entry;
+export default CreateEntry;

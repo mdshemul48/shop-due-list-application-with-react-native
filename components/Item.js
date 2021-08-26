@@ -5,8 +5,8 @@ import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native";
 import moment from "moment";
 
-const Item = () => {
-  const time = Date.now();
+const Item = (props) => {
+  const { productName, price, option, time } = props.item;
   const formattedTime = moment(time).format("MMMM Do YYYY, h:mm a");
   return (
     <Box style={styles.card}>
@@ -18,16 +18,16 @@ const Item = () => {
         </TouchableOpacity>
         <View>
           <Text style={styles.leftSizeText} fontSize='2xl'>
-            Coke
+            {productName}
           </Text>
           <Text style={styles.leftSizeText} fontSize='sm'>
-            Feros
+            {option}
           </Text>
         </View>
       </View>
       <View>
         <Text style={styles.rightSizeText} fontSize='2xl'>
-          ৳30
+          ৳{price}
         </Text>
         <Text style={styles.rightSizeText} fontSize='sm'>
           {formattedTime}
