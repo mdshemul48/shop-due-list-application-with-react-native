@@ -32,7 +32,7 @@ const reducer = (state, action) => {
   }
 };
 
-const ContextProvider = (props) => {
+export const ContextProvider = (props) => {
   const [state, dispatch] = useDispatch(reducer, {
     allEntry: [],
     TotalPrice: 0,
@@ -44,9 +44,13 @@ const ContextProvider = (props) => {
   const removeEntry = (id) => {
     dispatch({ type: "removeEntry", id });
   };
+
+  console.log(removeEntry);
   return (
-    <dueContext.Provider value={{ addEntry }}>
+    <dueContext.Provider value={{ addEntry, removeEntry }}>
       {props.children}
     </dueContext.Provider>
   );
 };
+
+export default dueContext;
