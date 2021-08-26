@@ -13,7 +13,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         allEntry: [action.entry, ...state.allEntry],
-        totalPrice: state.totalPrice + action.totalPrice,
+        totalPrice: state.totalPrice + action.entry.price,
       };
 
     case "removeEntry":
@@ -45,8 +45,7 @@ export const ContextProvider = (props) => {
   const removeEntry = (id) => {
     dispatch({ type: "removeEntry", id });
   };
-
-  console.log(removeEntry);
+  console.log(state);
   return (
     <dueContext.Provider
       value={{

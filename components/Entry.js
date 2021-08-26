@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { KeyboardAvoidingView, StyleSheet, TextInput } from "react-native";
 import { FormControl, Radio, Button } from "native-base";
 
+import dueContext from "../store/context";
+
 const Entry = () => {
+  const { addEntry } = useContext(dueContext);
   const [formState, setFormState] = useState({
     productName: "",
     price: "",
@@ -19,6 +22,20 @@ const Entry = () => {
   const optionChangeHandler = (eventText) => {
     setFormState((prevState) => ({ ...prevState, option: eventText }));
   };
+
+  const submitHandler = () => {
+    const { productName, price, option } = formState;
+
+    if (isNaN(price)) {
+      return;
+    }
+    if (productName.length === 0) {
+      return;
+    }
+
+    addEntry({ productName, price: parseInt(price), option, time: new Date() });
+  };
+
   return (
     <KeyboardAvoidingView
       style={styles.createCard}
@@ -54,7 +71,7 @@ const Entry = () => {
           <Radio value='Mom' my={1}>
             his mother
           </Radio>
-          <Button key={"sm"} size={"sm"}>
+          <Button key={"sm"} size={"sm"} onPress={submitHandler}>
             ADD
           </Button>
         </Radio.Group>
