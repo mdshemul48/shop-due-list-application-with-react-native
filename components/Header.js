@@ -5,7 +5,6 @@ import { Heading, View } from "native-base";
 import dueContext from "../store/context";
 const Header = () => {
   const { totalPrice } = useContext(dueContext);
-  console.log(totalPrice);
   return (
     <View style={styles.headerArea}>
       <Heading style={styles.heading}>Total Due</Heading>
@@ -25,7 +24,8 @@ const styles = StyleSheet.create({
   },
   heading: {
     color: "#ecfeff",
-    paddingVertical: 15,
+    paddingTop: 25,
+    paddingBottom: 15,
   },
 });
 export default Header;

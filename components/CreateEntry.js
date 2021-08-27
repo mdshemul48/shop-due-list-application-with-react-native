@@ -30,8 +30,7 @@ const CreateEntry = () => {
 
   const submitHandler = () => {
     const { productName, price, option } = formState;
-    console.log(price === 0);
-    if (isNaN(price) || price === 0) {
+    if (isNaN(price) || (price + "").length === 0 || parseInt(price) === 0) {
       return;
     }
     if (productName.length === 0) {
@@ -105,6 +104,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 10,
     fontSize: 20,
+    padding: 6,
   },
   Price: {
     // marginStart: ,
@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 10,
     fontSize: 20,
+    padding: 6,
   },
   providers: {
     flexDirection: "row",
