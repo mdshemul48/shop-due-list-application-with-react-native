@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
   heading: {
     color: "#ecfeff",
-    paddingTop: 25,
+    paddingTop: 40,
     paddingBottom: 15,
   },
 });
