@@ -7,6 +7,8 @@ import {
 } from "react-native";
 import { FormControl, Radio, Button } from "native-base";
 
+import uuid from "react-native-uuid";
+
 import dueContext from "../store/context";
 
 const CreateEntry = () => {
@@ -37,8 +39,20 @@ const CreateEntry = () => {
       return;
     }
 
-    addEntry({ productName, price: parseInt(price), option, time: new Date() });
-    setFormState({ productName: "", price: "", option: "Feros" });
+    addEntry({
+      productName,
+      price: parseInt(price),
+      option,
+      time: new Date(),
+      id: uuid.v4(),
+    });
+
+    // resetting form data state
+    setFormState({
+      productName: "",
+      price: "",
+      option: "Feros",
+    });
     Keyboard.dismiss();
   };
 
