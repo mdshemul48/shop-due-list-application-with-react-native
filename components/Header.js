@@ -19,12 +19,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 15,
-    borderBottomStartRadius: 10,
-    borderBottomEndRadius: 10,
+    borderBottomStartRadius: 20,
+    borderBottomEndRadius: 20,
   },
   heading: {
     color: "#ecfeff",
-    paddingTop: 40,
+    paddingTop: "8%",
     paddingBottom: 15,
   },
 });
