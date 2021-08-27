@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, Box, SmallCloseIcon } from "native-base";
 import { StyleSheet } from "react-native";
 
 import { TouchableOpacity } from "react-native";
 import moment from "moment";
 
+import dueContext from "../store/context";
+
 const Item = (props) => {
-  const { productName, price, option, time } = props.item;
+  const { removeEntry } = useContext(dueContext);
+
+  const { productName, price, option, time, id } = props.item;
   const formattedTime = moment(time).format("MMMM Do YYYY, h:mm a");
+
+  const deleteHandler = () => removeEntry(id);
   return (
     <Box style={styles.card}>
       <View style={styles.detailArea}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={deleteHandler}>
           <View style={styles.deleteButton}>
             <SmallCloseIcon color='#164e63' />
           </View>

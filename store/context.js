@@ -21,12 +21,12 @@ const reducer = (state, action) => {
       const foundedItemIndex = state.allEntry.findIndex(
         (item) => item.id === action.id
       );
-      const foundedItem = state.allEntry[foundedItemIndex];
+      const foundedItem = state.allEntry.splice(foundedItemIndex, 1)[0];
       return {
         ...state,
-        allEntry: allEntry.splice(foundedItemIndex, 1),
         totalPrice: state.totalPrice - foundedItem.price,
       };
+
     case "setData":
       return action.payload;
     default:
