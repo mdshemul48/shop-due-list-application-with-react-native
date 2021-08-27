@@ -30,8 +30,8 @@ const CreateEntry = () => {
 
   const submitHandler = () => {
     const { productName, price, option } = formState;
-
-    if (isNaN(price)) {
+    console.log(price === 0);
+    if (isNaN(price) || price === 0) {
       return;
     }
     if (productName.length === 0) {
